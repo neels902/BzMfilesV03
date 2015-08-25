@@ -27,10 +27,10 @@ arrTime=Hinput.AT;
     StrucFRax.stTime=arrTime; % datenum([2012,03,12,012,20,00]);  % st n end of FR time series e03
     StrucFRax.enTime=StrucFRax.stTime + datenum([0,0,0,18,00,00]);  % [2012,03,13,04,20,00]
 %%%NEW%%% -->
-    bkgdShift=datenum([0,0,4,00,00,00]); % [0,0,0,7,00,00]
+    bkgdShift=datenum([0,0,4,00,00,00]); % [0,0,0,7,00,00] 4 days ahead
 %%%%%%%%% <--
     T1= StrucFRax.stTime - bkgdShift;% datenum([2012,03,12,01,00,00]); % background SW values
-    T2=T1 + datenum([0,0,0,6,00,00]); % datenum([2012,03,12,04,00,00]);
+    T2=T1 + datenum([0,0,0,6,00,00]); % 6 hour interval of bkgd    % datenum([2012,03,12,04,00,00]); 
         
 ccmcKpEst=Hinput.ccmc; % [5.0, 8.0];
 swpcKpEst=Hinput.swpc; % [5.5, 6.5];

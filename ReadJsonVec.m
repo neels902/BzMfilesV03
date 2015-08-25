@@ -1,5 +1,7 @@
 function [ OUTPUT ] = ReadJsonVec(fileToRead1, IN_time)
 
+% Used inside TOPTREEBzTool > Bestimate > ave1day_preCarrot
+
 %'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
 % &begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
 
@@ -27,6 +29,7 @@ ETa=datestr(AceEndTime,'YYYY-mm-dd');
 ETb=datestr(AceEndTime,'HH:MM:SS');
 ET=[ETa,tempst,ETb];
 
+%% import DATA from ONLINE API
 WebUrl= [UrlStart,BTst,BT,ETst,ET];
 data = webread(WebUrl);
 
@@ -35,10 +38,10 @@ a = zeros(length(data),4);
 ttim= datenum([0,0,0,0,1,0]);
 
 for ii=1:1:length(data),
-    %TimNuma=data(ii).timestamp;
-    TimNum=AceBegTime + (ii-1)*ttim;
+    javaSerialDate=data(ii).timestamp;
+%     TimNum=AceBegTime + (ii-1)*ttim;
     
-    a(ii,1)=TimNum;
+    a(ii,1)=datenum([1970 1 1 0 0 javaSerialDate / 1000]);
     a(ii,2)=data(ii).B_x;
     a(ii,3)=data(ii).B_y;
     a(ii,4)=data(ii).B_z;
