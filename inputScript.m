@@ -10,6 +10,7 @@ sigmaA= 0 ;  % 0 -6.9 +20.7 (3*6.9)   ;  or 5.9; uncertainty
 I_earthpos=[0,0];
 Hinput=inputString.Hinput;
 
+KpStgStart='http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=json&resource=NOAA-KP&quantity=KP&'; % begin-time=2015-08-18%2023:59:59&end-time=2015-08-26%2023:59:59';
 so=Hinput.so; % [5.03,13.13]; 
 I_tilt=Hinput.I_tilt; % -38.01;
 I_haf=Hinput.I_haf; % 45.28;

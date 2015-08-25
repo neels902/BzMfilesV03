@@ -22,20 +22,23 @@ varargin=varargin{1,1};
 inputScript
 
 %% Import the Kp data
-    % % load('..\Insitu\Omni\Kp03_13_without_plusminus.mat');
+KpTserFinal= ReadJsonKpVec(KpStgStart,arrTime);
+
+% % load('..\Insitu\Omni\Kp03_13_without_plusminus.mat');
 %  load('../Insitu/Omni/Kp03_13Final.mat');
 % load('../Insitu/Omni/Kp03_14Final.mat');
+%     %figure
+%     %temp=1:1:10;
+%     %y01=2* (temp.*temp);
+%     %y02=100*sin(temp.*d2r);
+%     %plot(temp,y01,'r--*')
+%     load('Kp03_14Final.mat');
+%       % % ind22=find(Kp(:,1)>stTime);
+%     %hold on
+%     %plot(temp,y02,'b--o')      
 
-%figure
-%temp=1:1:10;
-%y01=2* (temp.*temp);
-%y02=100*sin(temp.*d2r);
-%plot(temp,y01,'r--*')
-load('Kp03_14Final.mat');
-      % % ind22=find(Kp(:,1)>stTime);
-%hold on
-%plot(temp,y02,'b--o')      
-      
+%%
+
 ind22C=find(KpTserFinal(:,1)>=(ceil(stTime)-2) & KpTserFinal(:,1)<(ceil(stTime+3)));
 
     % % KPmatrix22= Kp(ind22(1)-2:ind22(1)+2,:);  % 5 days of data starting 1/2 days prior

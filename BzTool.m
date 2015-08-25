@@ -56,8 +56,9 @@ function BzTool_OpeningFcn(hObject, eventdata, handles, varargin)
 Hinput.so = [-5.03,13.13];
 Hinput.I_tilt = 38.01;
 Hinput.I_haf = 45.28;
-Hinput.I_Mgram ='North';
-Hinput.cycle = 23;
+Hinput.I_Mgram ='South';
+Hinput.cycle = 24;
+Hinput.tempCyc = 1;  % only 1 or -1
 
 %Hinput.ftsStr = '../AIAfts/event03_20120310_023749_AIA_171_.fts';
 Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2040-01-01%2002:24:47.0&window=-1&cygnetId=237';
@@ -66,8 +67,8 @@ Hinput.enlilVV = 650;
 Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&';
 %'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=TEXT&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2015-08-18%2015:59:59&end-time=2015-08-19%2023:59:59';
 Hinput.AT=datenum([2012,03,12,012,20,00]);
-Hinput.ccmc = [5.0,9.0];
-Hinput.swpc = [1.0,9.0];
+Hinput.ccmc = [0.0,0.0];
+Hinput.swpc = [0.0,0.0];
 
 
 handles.Hinput= Hinput;
@@ -141,18 +142,14 @@ function popupmenuCycle_Callback(hObject, eventdata, handles)
 str = get(hObject, 'String');
 val = get(hObject,'Value');
 
-Stsc20=[1964,10,15,0,0,0];
-Stsc21=[1976,5,15,0,0,0];
-Stsc22=[1986,3,15,0,0,0];
-Stsc23=[1996,6,15,0,0,0];
-Stsc24=[2008,1,15,0,0,0];
+
 
 % Set current data to the selected data set.
 switch str{val};
 case '+ve' % Odd Solar cycle.
-   handles.Hinput.cycle = 24;
+   handles.Hinput.tempCyc = 1;
 case '-ve' % Even Solar cycle.
-   handles.Hinput.cycle = 23;
+   handles.Hinput.tempCyc = -1;
 end
 % Save the handles structure.
 guidata(hObject,handles)
@@ -184,13 +181,17 @@ function editLat_Callback(hObject, eventdata, handles)
 % hObject    handle to editLat (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 ssoLat = str2double(get(hObject,'String'));
 handles.Hinput.so(1,1)=ssoLat;
+
+if ssoLat<=0
+    handles.Hinput.I_Mgram = 'South';
+else
+    handles.Hinput.I_Mgram = 'North';
+end
+
 % Save the handles structure.
 guidata(hObject,handles)
-% Hints: get(hObject,'String') returns contents of editLat as text
-%        str2double(get(hObject,'String')) returns contents of editLat as a double
 
 
 % --- Executes during object creation, after setting all properties.
@@ -546,6 +547,9 @@ function BzPredict_Callback(hObject, eventdata, handles)
 % hObject    handle to BzPredict (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+handles= DefineSC(handles);
+
 tool_Inputs=handles.Hinput  % - used for printing out  
 %temp2 = TOPTREEBz('NoLongerUsed');  % 'ev03'
 temp2 = TOPTREEBzTool(handles);  % 'ev03'

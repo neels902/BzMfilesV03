@@ -28,18 +28,18 @@ scOddEven=a(1); % this is the SC is correct odd/even number
 
 %% If SC is even
 if rem(a(1),2)==0
-    if strcmp(handles.Hinput.I_Mgram,'North') && handles.Hinput.tempCyc == 1
+    if strcmp(InHandles.Hinput.I_Mgram,'North') && InHandles.Hinput.tempCyc == 1
         scOddEven= scOddEven +1 ;
-    elseif strcmp(handles.Hinput.I_Mgram,'South') && handles.Hinput.tempCyc == -1
+    elseif strcmp(InHandles.Hinput.I_Mgram,'South') && InHandles.Hinput.tempCyc == -1
         scOddEven= scOddEven +1 ;
     else
         scOddEven=scOddEven;
     end
 %% If SC is odd
 else
-    if strcmp(handles.Hinput.I_Mgram,'North') && handles.Hinput.tempCyc == -1
+    if strcmp(InHandles.Hinput.I_Mgram,'North') && InHandles.Hinput.tempCyc == -1
         scOddEven= scOddEven +1 ;
-    elseif strcmp(handles.Hinput.I_Mgram,'South') && handles.Hinput.tempCyc == 1
+    elseif strcmp(InHandles.Hinput.I_Mgram,'South') && InHandles.Hinput.tempCyc == 1
         scOddEven= scOddEven +1 ;
     else
         scOddEven=scOddEven;
@@ -53,7 +53,4 @@ else
     OutHand.Hinput.cycle = 23;
 end
 
-
-OutHand.Hinput.cycle = 23;
-
-return
+end

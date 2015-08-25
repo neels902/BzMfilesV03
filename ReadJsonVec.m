@@ -12,7 +12,7 @@ arrTime=IN_time(1);
 
 %% Create complete JSON url string
 %%%NEW%%% -->
-AceBegTime=arrTime- datenum([0,0,10,00,00,00]);
+AceBegTime=arrTime- datenum([0,0,10,00,00,00]);  % reads data prior to arrival Time
 AceEndTime=arrTime+ datenum([0,0,0,12,00,00]);
 %%%%%%%%% <--
 

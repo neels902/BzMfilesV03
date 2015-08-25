@@ -10,7 +10,7 @@ arT=I_Time(3);
 
 %%
 %Data1= ReadCdaw(x);
-Data1= ReadJsonVec(x,arT);
+Data1= ReadJsonVec(x,arT);  
 
 datenum1=Data1(:,1);
 points1= datenum1>st & datenum1<en;
