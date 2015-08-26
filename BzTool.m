@@ -61,7 +61,8 @@ Hinput.cycle = 24;
 Hinput.tempCyc = 1;  % only 1 or -1
 
 %Hinput.ftsStr = '../AIAfts/event03_20120310_023749_AIA_171_.fts';
-Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2040-01-01%2002:24:47.0&window=-1&cygnetId=237';
+Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/'
+% Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2040-01-01%2002:24:47.0&window=-1&cygnetId=237';
 Hinput.enlilBB = 15; % '../Insitu/enlil/ev03.txt';
 Hinput.enlilVV = 650;
 Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&';

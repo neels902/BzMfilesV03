@@ -1,21 +1,43 @@
 %function [Out1,O_st1]=ImportAIA
 % See ImportAIA_v1.m for original with older code for fts file
 
-
-
 %imshow(I);
-
 
 % info=fitsinfo ('fig/AIAfts/event10_20140107_201400_AIA_171_.fts');
 % Im2 =fitsread ('fig/AIAfts/event10_20140107_201400_AIA_171_.fts');
+% 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2038-08-17%2002:24:47.0&window=-1&cygnetId=237');
 inputScript
 
-    str2=imread(ftsStr); % 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2038-08-17%2002:24:47.0&window=-1&cygnetId=237');
+UrlStart=ftsStr;
+AiaImTime= arrTime - datenum([0,0,2,0,0,0]); % Choose AIA image two days prior to CME arrival - not hte latest image
+BTst1='iSWACygnetStreamer?timestamp=';
+BTst2='iSWACygnetDateStreamer?timestamp=';
+
+tempst='%20';
+BTa=datestr(AiaImTime,'YYYY-mm-dd');
+BTb=datestr(AiaImTime,'HH:MM:SS');
+BTIm=[BTst1,BTa,tempst,BTb];
+BTDate=[BTst2,BTa,tempst,BTb];
+
+ETst='.0&window=-1&cygnetId=';
+CygId='237';
+
+%% import image from API
+WebUrl= [UrlStart,BTIm,ETst,CygId];
+str2=imread(WebUrl); 
+% str2=imread(ftsStr); 
+    
 %     info=fitsinfo (ftsStr); % '../AIAfts/event03_20120310_023749_AIA_171_.fts'
 %     Im2 =fitsread (ftsStr); % '../AIAfts/event03_20120310_023749_AIA_171_.fts'
 % hdr=info.PrimaryData.Keywords;
 % Im2=flipud(Im2);
 %imagesc(str2)
+%%  import image date as a string
+WebUrl2= [UrlStart,BTDate,ETst,CygId];
+strDatetemp=urlread(WebUrl2); 
+strDate=strDatetemp(1:end-4);
+
+%%
 B = imresize(str2, 4);
 Im2 = rgb2gray(B);
 Im2=double(Im2);
