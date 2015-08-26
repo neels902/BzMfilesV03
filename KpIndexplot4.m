@@ -77,9 +77,12 @@ N=numel(data);
 
 
 %% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& %%
-figure
+figKp=figure;
 set(gcf,'Units','centimeters')
 set(gcf,'Position',[11.8,6.7,16.3,10.0])
+
+set(figKp,'Name',['Bz4Cast:3 - Kp Prediction']);
+set(figKp,'NumberTitle', 'off');
 %%%%%%%%%%%%%%%%%%%%% horizontal lines for kp= 2, 4, 6, 8 
 ha1=plot([0 N],[2 2],'Color',[0,0.8,0],'LineStyle','-','Linewidth',1);hold on
 ha2=plot([0 N],[3 3],'Color',[0,0.8,0],'LineStyle',':','Linewidth',1);

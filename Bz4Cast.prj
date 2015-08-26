@@ -1,0 +1,160 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="3832428515" file="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03/Bz4Cast.prj" location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03" name="Bz4Cast" preferred-package-location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
+    <param.appname>Bz4Cast</param.appname>
+    <param.icon>${PROJECT_ROOT}/Bz4Cast_resources/icon.icns</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_32.png</file>
+      <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_16.png</file>
+    </param.icons>
+    <param.version>3.0</param.version>
+    <param.authnamewatermark>Neel Savani</param.authnamewatermark>
+    <param.email>neel.savani@nasa.gov</param.email>
+    <param.company>NASA GSFC / UMBC</param.company>
+    <param.summary>Bz prediction using iSWA JSON queries. standalone. version 03</param.summary>
+    <param.description>Bz prediction using iSWA JSON queries. standalone. version 03</param.description>
+    <param.screenshot>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/splash.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>/Bz4Cast/</param.installpath.string>
+    <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
+    <param.logo>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/Standalone.jpg</param.logo>
+    <param.install.notes />
+    <param.intermediate>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing</param.intermediate>
+    <param.files.only>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution_files_only</param.files.only>
+    <param.output>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution</param.output>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.embed.ctf>true</param.embed.ctf>
+    <param.server.ctf>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/.ctf</param.server.ctf>
+    <param.server.readme>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/readme.txt</param.server.readme>
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.required.mcr.products>
+      <item>35000</item>
+      <item>35001</item>
+    </param.required.mcr.products>
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>Bz4Cast</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <unset>
+      <param.guid />
+      <param.installpath.combo />
+      <param.install.notes />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.embed.ctf />
+      <param.server.ctf />
+      <param.server.readme />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/BzTool.m</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>/Users/Neel/Documents/MATLAB/Ave.m</file>
+      <file>/Users/Neel/Documents/MATLAB/DSdate2time.m</file>
+      <file>/Users/Neel/Documents/MATLAB/DSmat2time.m</file>
+      <file>/Users/Neel/Documents/MATLAB/DStime2date.m</file>
+      <file>/Users/Neel/Documents/MATLAB/DStime2mat.m</file>
+      <file>/Users/Neel/Documents/MATLAB/NanAvErr.m</file>
+      <file>/Users/Neel/Documents/MATLAB/TimeAxisSet.m</file>
+      <file>/Users/Neel/Documents/MATLAB/addzoomy.m</file>
+      <file>/Users/Neel/Documents/MATLAB/d2r.m</file>
+      <file>/Users/Neel/Documents/MATLAB/daycheck.m</file>
+      <file>/Users/Neel/Documents/MATLAB/doy2ymd.m</file>
+      <file>/Users/Neel/Documents/MATLAB/r2d.m</file>
+      <file>/Users/Neel/Documents/MATLAB/subpanel.m</file>
+      <file>/Users/Neel/Documents/MATLAB/ymd2doy.m</file>
+      <file>${PROJECT_ROOT}/Bestimate.m</file>
+      <file>${PROJECT_ROOT}/BzTool.fig</file>
+      <file>${PROJECT_ROOT}/CalcImpactparam.m</file>
+      <file>${PROJECT_ROOT}/CreateFRaxis.m</file>
+      <file>${PROJECT_ROOT}/CreateTimeVectors.m</file>
+      <file>${PROJECT_ROOT}/DarkBlue.m</file>
+      <file>${PROJECT_ROOT}/DarkGreen.m</file>
+      <file>${PROJECT_ROOT}/DarkRed.m</file>
+      <file>${PROJECT_ROOT}/DefineSC.m</file>
+      <file>${PROJECT_ROOT}/Earth2FRaxis.m</file>
+      <file>${PROJECT_ROOT}/FRProfile.m</file>
+      <file>${PROJECT_ROOT}/FRaxis.m</file>
+      <file>${PROJECT_ROOT}/FRmodel.m</file>
+      <file>${PROJECT_ROOT}/FRmodelMag.m</file>
+      <file>${PROJECT_ROOT}/ImportAIA.m</file>
+      <file>${PROJECT_ROOT}/KpEstimate.m</file>
+      <file>${PROJECT_ROOT}/KpIndexplot4.m</file>
+      <file>${PROJECT_ROOT}/ReadJsonKpVec.m</file>
+      <file>${PROJECT_ROOT}/ReadJsonVec.m</file>
+      <file>${PROJECT_ROOT}/ShadeSun.m</file>
+      <file>${PROJECT_ROOT}/ShadeSun2.m</file>
+      <file>${PROJECT_ROOT}/Sunsc.m</file>
+      <file>${PROJECT_ROOT}/TOPTREEBzTool.m</file>
+      <file>${PROJECT_ROOT}/addNoiseVec.m</file>
+      <file>${PROJECT_ROOT}/ave1day_preCarrot.m</file>
+      <file>${PROJECT_ROOT}/inputScript.m</file>
+      <file>${PROJECT_ROOT}/rev_MVA.m</file>
+      <file>${PROJECT_ROOT}/totAng.m</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="run_Bz4Cast.sh" optional="false">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/run_Bz4Cast.sh</file>
+      <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="splash.png" optional="false">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/splash.png</file>
+      <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="Bz4Cast.app" optional="false">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/Bz4Cast.app</file>
+      <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="readme.txt" optional="true">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2014b.app</root>
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.10.5</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

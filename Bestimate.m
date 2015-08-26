@@ -100,7 +100,9 @@ thet=(th/(2*pi)*360 );
 theta=thet; theta(thet<0)=360+theta(thet<0);
 phi=ph/(2*pi)*360;
 
-figure
+figInSit=figure;
+set(figInSit,'Name',['Bz4Cast:2 - L1 Prediction']);
+set(figInSit,'NumberTitle', 'off');
 subpanel(6,1,1),plot(FullmodData(:,1),FullmodData(:,2),'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,2),plot(FullmodData(:,1),FullmodData(:,3),'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,3),plot(FullmodData(:,1),FullmodData(:,4),'Color',[1,0.4,0.4],'LineWidth',4);

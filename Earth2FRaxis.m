@@ -74,7 +74,7 @@ if ~isempty(plotfig),
     
     set(gcf,'Units','centimeters')
     set(gcf,'Position',[1.0,0.5,14.0,13.5])
-    set(OutStruc.fig1,'Name',['MTseris Bz: Fig.1 - Sun']);
+    set(OutStruc.fig1,'Name',['Bz4Cast:1 - Sun']);
     set(OutStruc.fig1,'NumberTitle', 'off');
     FF= 14; % FontSize
 
