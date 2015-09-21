@@ -94,8 +94,16 @@ FullmodData=[TTmod,Bxmod,Bymod,Bzmod,BBmod];
 
 %Bave=5.5; % nT ave background field strength
 
+%% 5b add noise to forecast vectors - new addition section
+[FullmodDataNoise,temp]=addNoiseVec(FullmodData);
+
+BxmodN=FullmodDataNoise(:,2);
+BymodN=FullmodDataNoise(:,3);
+BzmodN=FullmodDataNoise(:,4);
+BBmodN=sqrt((BxmodN.*BxmodN)+(BymodN.*BymodN)+(BzmodN.*BzmodN));
+
 %% 6. Temp figure plot checking
-[th,ph,r]=cart2sph(Bxmod,Bymod,Bzmod);
+[th,ph,r]=cart2sph(BxmodN,BymodN,BzmodN);
 thet=(th/(2*pi)*360 );
 theta=thet; theta(thet<0)=360+theta(thet<0);
 phi=ph/(2*pi)*360;
@@ -103,12 +111,12 @@ phi=ph/(2*pi)*360;
 figInSit=figure;
 set(figInSit,'Name',['Bz4Cast:2 - L1 Prediction']);
 set(figInSit,'NumberTitle', 'off');
-subpanel(6,1,1),plot(FullmodData(:,1),FullmodData(:,2),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,2),plot(FullmodData(:,1),FullmodData(:,3),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,3),plot(FullmodData(:,1),FullmodData(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,4),plot(FullmodData(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,5),plot(FullmodData(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,6),plot(FullmodData(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,1),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,2),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,2),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,3),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,3),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,4),plot(FullmodDataNoise(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,5),plot(FullmodDataNoise(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,1),ylabel('B_{x} GSE [nT]','Fontsize',14);
 subpanel(6,1,2),ylabel('B_{y} [nT]','Fontsize',14);
 subpanel(6,1,3),ylabel('B_{z} [nT]','Fontsize',14);
@@ -123,13 +131,12 @@ subpanel(6,1,3),plot([xxlim(1)-10,xxlim(2)+10],[0,0],'Color','k','LineWidth',0.7
 subpanel(6,1,4),plot([xxlim(1)-10,xxlim(2)+10],[180,180],'Color','k','LineWidth',0.7,'LineStyle','--');
 subpanel(6,1,5),plot([xxlim(1)-10,xxlim(2)+10],[0,0],'Color','k','LineWidth',0.7,'LineStyle','--');
 subpanel(6,1,6),plot([xxlim(1)-10,xxlim(2)+10],[0,0],'Color','k','LineWidth',0.7,'LineStyle','--');
-subpanel(6,1,1),plot(FullmodData(:,1),FullmodData(:,2),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,2),plot(FullmodData(:,1),FullmodData(:,3),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,3),plot(FullmodData(:,1),FullmodData(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,4),plot(FullmodData(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,5),plot(FullmodData(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,6),plot(FullmodData(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
-
+subpanel(6,1,1),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,2),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,2),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,3),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,3),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,4),plot(FullmodDataNoise(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,5),plot(FullmodDataNoise(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
 
 
 [thin,phin,rin]=cart2sph(insit(:,2),insit(:,3),insit(:,4));
@@ -160,16 +167,12 @@ set(ax(4),'ytick',[0,90,180,270,360]); set(ax(4),'yticklabel',{'','90','','270',
 set(ax(5),'ylim',[-90,90]);
 set(ax(5),'ytick',[-90,-45,0,45,90]); set(ax(5),'yticklabel',{'','-45','','45',''});
 
-
 % Vmag= sqrt( (insit(:,5)).^2 + (insit(:,6)).^2 + (insit(:,7)).^2   );
 % Np=insit(:,8);Tp=insit(:,9);
 % Beta=insit(:,10);
-%% 7. noise addition not completed yet
+%% 7. average data to 3hours for Kp insertion
 % ave the forecast field data to 3-hr segments.
-FullmodDataAve=Ave(FullmodData,[0,0,0,3,0,0]);
-
-% add nocie to forecast vecotrs
-[FullmodDataNoise,temp]=addNoiseVec(FullmodDataAve);
+FullmodDataAve=Ave(FullmodDataNoise,[0,0,0,3,0,0]);
 
 
 %% 8. Kp prediction
@@ -188,12 +191,11 @@ disp(['##----------------##']);
 disp(['Ave Vel from Enlil FR Estimate =  ', num2str(Vel),' km/s']);
 disp(['##----------------##']);
 
-[KpvecHighRes,O_Struc]=KpEstimate(Vel,FullmodDataNoise, varargin);
+[KpvecHighRes,O_Struc]=KpEstimate(Vel,FullmodDataAve, varargin);
 %[KpvecHighRes,O_Struc]=KpEstimate(Vel,FullmodDataNoise, vararginOVERRIDE);
 %% 9. ave the Kp index into 3hr segments
 Kpvec=Ave(KpvecHighRes,[0,0,0,3,0,0]);
 %Kpvec=Ave(O_Struc.Kp_old,[0,0,0,3,0,0]);
-
 
 % plot Kp index data with prediction
 kpstuff.Kpvec=Kpvec;
@@ -207,3 +209,7 @@ StructA.temp1=1;
 StructA.temp2=1;
 
 end
+
+
+
+

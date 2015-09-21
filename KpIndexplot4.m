@@ -1,6 +1,6 @@
 function outPP_h =KpIndexplot4(I_kpstuff,varargin)
 
-% http://www.mathworks.com/matlabcentral/answers/58971-bar-plot-with-bars-i
+% http://www.m3110athworks.com/matlabcentral/answers/58971-bar-plot-with-bars-i
 % n-different-colors
 
 %http://stackoverflow.com/questions/13266352/matlab-bar-graph-fill-bars-wit

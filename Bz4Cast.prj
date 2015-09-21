@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="3832428515" file="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03/Bz4Cast.prj" location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03" name="Bz4Cast" preferred-package-location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
+  <configuration build-checksum="201994101" file="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03/Bz4Cast.prj" location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03" name="Bz4Cast" preferred-package-location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
     <param.appname>Bz4Cast</param.appname>
     <param.icon>${PROJECT_ROOT}/Bz4Cast_resources/icon.icns</param.icon>
     <param.icons>
@@ -8,12 +8,15 @@
       <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_24.png</file>
       <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_16.png</file>
     </param.icons>
-    <param.version>3.0</param.version>
+    <param.version>4.0</param.version>
     <param.authnamewatermark>Neel Savani</param.authnamewatermark>
     <param.email>neel.savani@nasa.gov</param.email>
     <param.company>NASA GSFC / UMBC</param.company>
-    <param.summary>Bz prediction using iSWA JSON queries. standalone. version 03</param.summary>
-    <param.description>Bz prediction using iSWA JSON queries. standalone. version 03</param.description>
+    <param.summary>Bz prediction using iSWA JSON queries. standalone. version 04</param.summary>
+    <param.description>Bz prediction using iSWA JSON queries. standalone. version 04
+NEW: historical SDO AIA image is scraped from CME Arrival Time information.
+NEW: NOAA real time Kp values are now scraped.
+JSON queries of OMNI data currently causing run-time lag due to data volume. I will improve this in future versions.</param.description>
     <param.screenshot>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/splash.png</param.screenshot>
     <param.guid />
     <param.installpath.string>/Bz4Cast/</param.installpath.string>
