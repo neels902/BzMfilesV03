@@ -75,6 +75,7 @@ Timelength=0.5;  % half a day extra on both sides;
 incrementTime= Timemod(2)-Timemod(1);
 
 tvec=(incrementTime:incrementTime:Timelength)';
+ %   -->  linspace   for linear spaced vectors
 tvecN=length(tvec(:,1));
 Static=ones(tvecN,1);
 
@@ -95,12 +96,18 @@ FullmodData=[TTmod,Bxmod,Bymod,Bzmod,BBmod];
 %Bave=5.5; % nT ave background field strength
 
 %% 5b add noise to forecast vectors - new addition section
-[FullmodDataNoise,temp]=addNoiseVec(FullmodData);
+[FullmodDataNoiseHighRes,temp]=addNoiseVec(FullmodData);
+
+% averages data to 20min 
+TimeInterp=TTmod(1):datenum([0,0,0,0,20,0]):postTime(end);
+Ynoise=interp1q(TTmod,FullmodDataNoiseHighRes(:,2:4),TimeInterp');
+FullmodDataNoise=[TimeInterp',Ynoise];
 
 BxmodN=FullmodDataNoise(:,2);
 BymodN=FullmodDataNoise(:,3);
 BzmodN=FullmodDataNoise(:,4);
 BBmodN=sqrt((BxmodN.*BxmodN)+(BymodN.*BymodN)+(BzmodN.*BzmodN));
+FullmodDataNoise(:,5)=BBmodN;
 
 %% 6. Temp figure plot checking
 [th,ph,r]=cart2sph(BxmodN,BymodN,BzmodN);
@@ -116,7 +123,7 @@ subpanel(6,1,2),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,3),'Color',[1,0.4,
 subpanel(6,1,3),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,4),plot(FullmodDataNoise(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,5),plot(FullmodDataNoise(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmodN,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,1),ylabel('B_{x} GSE [nT]','Fontsize',14);
 subpanel(6,1,2),ylabel('B_{y} [nT]','Fontsize',14);
 subpanel(6,1,3),ylabel('B_{z} [nT]','Fontsize',14);
@@ -136,7 +143,7 @@ subpanel(6,1,2),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,3),'Color',[1,0.4,
 subpanel(6,1,3),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,4),'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,4),plot(FullmodDataNoise(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,5),plot(FullmodDataNoise(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
-subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmod,'Color',[1,0.4,0.4],'LineWidth',4);
+subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmodN,'Color',[1,0.4,0.4],'LineWidth',4);
 
 
 [thin,phin,rin]=cart2sph(insit(:,2),insit(:,3),insit(:,4));

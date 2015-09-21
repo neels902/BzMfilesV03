@@ -13,6 +13,7 @@ BzmodN=I_data(:,4);
 alpha=5/3;
 N = length(Time);     %N = 48* 60;
 delB_B=0.3;
+Bdefault=9;   % make B noise field larger when the B-component is small
 
 %% do inverse fft to create time series. do a time period for all components
 NormNoise = PowerNoiseTseries(alpha, 3* N, delB_B);
@@ -25,8 +26,15 @@ TtNoi=startT:delT:startT+(delT-1)*N;
 
 % add normailised noise for actual B-field
 Bx=BxmodN + (BxmodN.*NormNoise(1:N));
+Bx(abs(BxmodN)<5)=BxmodN(abs(BxmodN)<5) + (Bdefault.*NormNoise(abs(BxmodN)<5));
+
+
+
 By=BymodN + (BymodN.*NormNoise(N+1:2*N));
+By(abs(BymodN)<5)=BymodN(abs(BymodN)<5) + (Bdefault.*NormNoise([logical(zeros(N,1));abs(BymodN)<5]));
+
 Bz=BzmodN + (BzmodN.*NormNoise((2*N+1):3*N));
+Bz(abs(BzmodN)<5)=BzmodN(abs(BzmodN)<5) + (Bdefault.*NormNoise([logical(zeros(N,1));abs(BzmodN)<5])); 
 
 BB=sqrt((Bx.*Bx)+(By.*By)+(Bz.*Bz));
 

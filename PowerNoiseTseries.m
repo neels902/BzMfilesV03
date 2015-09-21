@@ -23,6 +23,7 @@ function x = PowerNoiseTseries(alpha, N, INdelB)
 % This software CANNOT be [is] licensed at this stage under 
 % the Attribution-Share Alike 2.5 Generic Creative Commons license:
 % http://creativecommons.org/licenses/by-sa/2.5/
+% see powernoise.m routine as guidence from this was used.
 
 if nargin==2
     delB_OverB=0.1;
@@ -32,18 +33,17 @@ end
 
 % future version may consider not normailising the spectrum or non-uniform
 % phase distribution
-opt_RandPow = false;
-opt_Norm = false;
-
+option_RandPow = false;
+option_Norm = false;
 
 
 N2 = floor(N/2)-1;
-f = (2:(N2+1))';
-Amp2 = 1./(f.^(-alpha/2));
+freq = (2:(N2+1))';
+Amp2 = 1./(freq.^(-alpha/2));
 
 % exponential phase
-p2 = (rand(N2,1)-0.5)*2*pi;
-d2 = Amp2.*exp(1i*p2);
+phase2 = (rand(N2,1)-0.5)*2*pi;
+d2 = Amp2.*exp(1i*phase2);
 
 % create freq distribution that includes the conjugate pair
 d = [1; d2; 1/((N2+2)^alpha); flipud(conj(d2))];
@@ -53,6 +53,8 @@ x = real(ifft(d));
 
 % normalise the amplitude of noise to desired ratio of |B|
 x =  delB_OverB *  ( ((x - min(x))/(max(x) - min(x)) - 0.5) * 2 ) ;
+
+
 
 return
 
