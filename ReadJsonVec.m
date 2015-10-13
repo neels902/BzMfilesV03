@@ -1,6 +1,6 @@
 function [ OUTPUT ] = ReadJsonVec(fileToRead1, IN_time)
 
-% Used inside TOPTREEBzTool > Bestimate > ave1day_preCarrot
+% Used inside TOPTREEBzTool > Bestimate > ave1day_preCarrot > ReadJsonVec
 
 %'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
 % &begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
@@ -12,7 +12,7 @@ arrTime=IN_time(1);
 
 %% Create complete JSON url string
 %%%NEW%%% -->
-AceBegTime=arrTime- datenum([0,0,6,00,00,00]);  % reads data prior to arrival Time
+AceBegTime=arrTime- datenum([0,0,5,00,00,00]);  % reads data prior to arrival Time
 AceEndTime=arrTime+ datenum([0,0,2,00,00,00]);
 %%%%%%%%% <--
 

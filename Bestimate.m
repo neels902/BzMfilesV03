@@ -1,5 +1,7 @@
 function [O_Bdata, StructA]= Bestimate(I_Axis_dirn, I_Y0,I_BBmag, I_magdirn,varargin)
 
+% Used inside TOPTREEBzTool > Bestimate > 
+
 % USES   FRProfile, ave1day_preCarrot, addNoiseVec, KpEstimate
 
 %% 1. inputs
@@ -55,7 +57,7 @@ BMAG= sqrt( (bfield(:,2)).^2 + (bfield(:,3)).^2 + (bfield(:,4)).^2   );
 
 Time_Ra=[T1,T2,arrTime];  %  <-- NEW 3rd VAR for JSON inputs  
 
-[aveData,OutStrucTemp]=ave1day_preCarrot(insit_path, Time_Ra);
+[aveData,OutStrucTemp]=ave1day_preCarrot(insit_path, Time_Ra);   % insitu path is API
 
 Bxave=aveData(1,2);
 Byave=aveData(1,3);

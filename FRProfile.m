@@ -124,7 +124,7 @@ if ~isempty(plotfig),
     OutStruc.fig4=figure;
     set(gcf,'Units','centimeters')
     set(gcf,'Position',[15.3,0.2,16.0,10.4])
-    set(OutStruc.fig4,'Name',['MTseris Bz: Fig.4 - B-field vectors']);
+    set(OutStruc.fig4,'Name',['MTseries Bz: Fig.4 - B-field vectors']);
     set(OutStruc.fig4,'NumberTitle', 'off');
     FF= 14; % FontSize
       subpanel(3,1,1),plot(Bseries(:,1),-Bseries(:,2),'Color',DarkGreen,'LineWidth',0.5); % this is the rtn equivalent
