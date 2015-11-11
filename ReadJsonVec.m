@@ -35,17 +35,32 @@ data = webread(WebUrl);
 
 %%
 a = zeros(length(data),4);
+
+a(:,2)=[data.B_x];
+a(:,3)=[data.B_y];
+a(:,4)=[data.B_z];
+
 ttim= datenum([0,0,0,0,1,0]);
 
-for ii=1:1:length(data),
-    javaSerialDate=data(ii).timestamp;
-%     TimNum=AceBegTime + (ii-1)*ttim;
-    
-    a(ii,1)=datenum([1970 1 1 0 0 javaSerialDate / 1000]);
-    a(ii,2)=data(ii).B_x;
-    a(ii,3)=data(ii).B_y;
-    a(ii,4)=data(ii).B_z;
-end
+javaSerialDate=[data.timestamp]';
+
+temLen = length(javaSerialDate);
+tem1970 = 1970* ones(temLen,1);
+tem1 = ones(temLen,1);
+tem0 = zeros(temLen,1);
+TimMatrix=[tem1970,tem1,tem1,tem0,tem0,(javaSerialDate ./ 1000)];
+
+a(:,1)= datenum(TimMatrix);
+
+% for ii=1:1:length(data),
+%     javaSerialDate=data(ii).timestamp;
+% %     TimNum=AceBegTime + (ii-1)*ttim;
+%     
+%     a(ii,1)=datenum([1970 1 1 0 0 javaSerialDate / 1000]);
+%     a(ii,2)=data(ii).B_x;
+%     a(ii,3)=data(ii).B_y;
+%     a(ii,4)=data(ii).B_z;
+% end
 
 a(a(:,2)<(-900),2)= NaN;
 a(a(:,3)<(-900),3)= NaN;
