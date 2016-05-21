@@ -42,7 +42,7 @@ end
 %%
 O_aveData= BBave;  % FOR THE BACKGROUND
 O_str.temp=Data1;  % FOR THE COMPLETE DATA 
-
+O_str.tempShort=Bfield;
 
 
 end
