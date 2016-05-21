@@ -53,8 +53,6 @@ BMAG= sqrt( (bfield(:,2)).^2 + (bfield(:,3)).^2 + (bfield(:,4)).^2   );
 % inputScript
 
 
-
-
 Time_Ra=[T1,T2,arrTime];  %  <-- NEW 3rd VAR for JSON inputs  
 
 [aveData,OutStrucTemp]=ave1day_preCarrot(insit_path, Time_Ra);   % insitu path is API
@@ -86,12 +84,35 @@ preTime=Timemod(1)-flipud(tvec((1:end)));
 postTime=Timemod(end) + (tvec((1:end)));
 
 
-TTmod=[preTime;Timemod;postTime];
-Bxmod=[(Bxave*Static) ; bfield(:,2) ; (Bxave*Static)];
-Bymod=[(Byave*Static) ; bfield(:,3) ; (Byave*Static)];
-Bzmod=[(Bzave*Static) ; bfield(:,4) ; (Bzave*Static)];
+% add sheath
+InStruc=1;
+InBfield=OutStrucTemp.tempShort;
 
-BBmod=[(BBave*Static) ; BMAG ; (BBave*Static)];
+
+[BSheathProxy, OutStruc]= TopSheathModule (InBfield, InStruc);
+
+Bsheath2= [InBfield(:,1), BSheathProxy];
+BshMag2 = sqrt( (Bsheath2(:,2)).^2 + (Bsheath2(:,3)).^2 + (Bsheath2(:,4)).^2   );
+
+% quick fix
+NcurrentLenSh=length(preTime);
+Nsh=round(0.5*NcurrentLenSh);  % 1/2 to convert 12hr -> 6hr
+ShpreTime=preTime(Nsh+1:end);  
+Bsheath=Bsheath2(end-Nsh+1:end,:);
+BshMag=BshMag2(end-Nsh+1:end);
+
+
+TTmod=[ShpreTime;Timemod;postTime];
+Bxmod=[Bsheath(:,2) ; bfield(:,2) ; (Bxave*Static)];
+Bymod=[Bsheath(:,3) ; bfield(:,3) ; (Byave*Static)];
+Bzmod=[Bsheath(:,4) ; bfield(:,4) ; (Bzave*Static)];
+BBmod=[BshMag ; BMAG ; (BBave*Static)];
+
+% TTmod=[preTime;Timemod;postTime];
+% Bxmod=[(Bxave*Static) ; bfield(:,2) ; (Bxave*Static)];
+% Bymod=[(Byave*Static) ; bfield(:,3) ; (Byave*Static)];
+% Bzmod=[(Bzave*Static) ; bfield(:,4) ; (Bzave*Static)];
+% BBmod=[(BBave*Static) ; BMAG ; (BBave*Static)];
 
 FullmodData=[TTmod,Bxmod,Bymod,Bzmod,BBmod];
 
