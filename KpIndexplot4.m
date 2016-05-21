@@ -15,6 +15,7 @@ function outPP_h =KpIndexplot4(I_kpstuff,varargin)
 % end
 Kpvec=I_kpstuff.Kpvec;
 stTime=I_kpstuff.stTime;
+LastShVal = I_kpstuff.LastShVal;
 
 inputString=varargin{1,1}{1,2};  % used in Sunsc>importAIA
 plotfig=varargin{1,1}{1,1};
@@ -274,14 +275,16 @@ ypoints=[NewMKpmax,NewMKpmax,NewMKpmin,NewMKpmin];
 
 haCCMC(16)=line([t1swpc,t1swpc],[NewMKp-0.2,NewMKp+0.2],...
         'Color',DarkRed,'LineStyle','-','Linewidth',1,'Parent',ax2_2);
-haCCMC(17)=plot([t1swpc-tswpcErr,t1swpc+tswpcErr],[NewMKp,NewMKp],...
+haCCMC(17)= 1;
+haCCMC(18)=plot([t1swpc-tswpcErr,t1swpc+tswpcErr],[NewMKp,NewMKp],...
         'Color',[1,0.4,0.4],'LineStyle','-','Linewidth',5,'Parent',ax2_2);
 text(t1swpc+tswpcErr+0.05,NewMKp,'Bz4Cast Model Prediction', 'color',DarkRed , ...
      'horizontalalignment','left','Rotation',0,'FontSize',13)
 
 %% 
-h2_3=stairs(Kpvec(:,1),Kpvec(:,2),'Color',DarkRed,'LineStyle','-','Linewidth',2.5,'Parent',ax2_2);hold on
- 
+kplog = find(Kpvec(:,1) > LastShVal);
+h2_3=stairs(Kpvec(kplog,1),Kpvec(kplog,2),'Color',DarkRed,'LineStyle','-','Linewidth',2.5,'Parent',ax2_2);hold on
+
 disp(['##----------------##']);
 disp(['Max estimated Kp   =  ', num2str(NewMKp)]);
 disp(['##----------------##']);

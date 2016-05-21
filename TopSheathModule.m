@@ -5,6 +5,7 @@ function [BSheathProxy, OutStruc]= TopSheathModule (InBfield, InStruc)
 Bin=InBfield;
 
 %% 01. define the shock normal direction
+BfieldCompressionRatio=2;       % max value is 4.
 tilt = 0;
 HAF= 45;
 SolarSource =[10,15]; % [Lat, Lon]
@@ -46,7 +47,6 @@ bnormal=[bn.*n(:,1),bn.*n(:,2),bn.*n(:,3)];
 bperp=(b-bnormal);
 
 %% increase field strength and PMS for downstream
-BfieldCompressionRatio=4;
 
 bperp=BfieldCompressionRatio * (b-bnormal); % strong limiting case for shock compression in perp direction
 

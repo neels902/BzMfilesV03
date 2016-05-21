@@ -132,6 +132,10 @@ BzmodN=FullmodDataNoise(:,4);
 BBmodN=sqrt((BxmodN.*BxmodN)+(BymodN.*BymodN)+(BzmodN.*BzmodN));
 FullmodDataNoise(:,5)=BBmodN;
 
+% array for the sheath time series
+SheathLog = find(FullmodDataNoise(:,1)<=ShpreTime(end)); % used in Sec 6
+LastShVal = FullmodDataNoise(SheathLog(end),1); % used in KpIndexplot4
+
 %% 6. Temp figure plot checking
 [th,ph,r]=cart2sph(BxmodN,BymodN,BzmodN);
 thet=(th/(2*pi)*360 );
@@ -167,6 +171,16 @@ subpanel(6,1,3),plot(FullmodDataNoise(:,1),FullmodDataNoise(:,4),'Color',[1,0.4,
 subpanel(6,1,4),plot(FullmodDataNoise(:,1),theta,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,5),plot(FullmodDataNoise(:,1),phi,'Color',[1,0.4,0.4],'LineWidth',4);
 subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmodN,'Color',[1,0.4,0.4],'LineWidth',4);
+
+% sheath plot line
+%testCol= [0.4,1,0.4]; % light green
+testCol = DarkGreen;
+subpanel(6,1,1),plot(FullmodDataNoise(SheathLog,1),FullmodDataNoise(SheathLog,2),'Color',testCol,'LineWidth',4);
+subpanel(6,1,2),plot(FullmodDataNoise(SheathLog,1),FullmodDataNoise(SheathLog,3),'Color',testCol,'LineWidth',4);
+subpanel(6,1,3),plot(FullmodDataNoise(SheathLog,1),FullmodDataNoise(SheathLog,4),'Color',testCol,'LineWidth',4);
+subpanel(6,1,4),plot(FullmodDataNoise(SheathLog,1),theta(SheathLog),'Color',testCol,'LineWidth',4);
+subpanel(6,1,5),plot(FullmodDataNoise(SheathLog,1),phi(SheathLog),'Color',testCol,'LineWidth',4);
+subpanel(6,1,6),plot(FullmodDataNoise(SheathLog,1),BBmodN(SheathLog),'Color',testCol,'LineWidth',4);
 
 
 [thin,phin,rin]=cart2sph(insit(:,2),insit(:,3),insit(:,4));
@@ -230,7 +244,7 @@ Kpvec=Ave(KpvecHighRes,[0,0,0,3,0,0]);
 % plot Kp index data with prediction
 kpstuff.Kpvec=Kpvec;
 kpstuff.stTime=stTime;
-
+kpstuff.LastShVal = LastShVal;
 outKp= KpIndexplot4(kpstuff, varargin);
 
 %% 10. outputs
