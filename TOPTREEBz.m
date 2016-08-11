@@ -49,7 +49,7 @@ Ang2Sou = Ang2Sou_deg * d2r;
 
 StrucOut.EarthPos=EarthPos;
 StrucOut.fsun=tempStruc.fig1;
-StrucOut.Y0mag=tempStruc.Y0mag;
+StrucOut.Y0mag=tempStruc.Y0mag;  % for patent - is not Y0. It is estimate if earth is above or below storm
 StrucOut.linevec=tempStruc.linevec;
 
 disp(sprintf('Fractional dist Parallel to Axis, Rf= %3.3g ',Fracdist));

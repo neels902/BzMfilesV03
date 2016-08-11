@@ -38,7 +38,7 @@ KpTserFinal= ReadJsonKpVec(KpStgStart,arrTime);
 %     %hold on
 %     %plot(temp,y02,'b--o')      
 
-%%
+%% formatting data and model into correct 5-day interval
 
 ind22C=find(KpTserFinal(:,1)>=(ceil(stTime)-2) & KpTserFinal(:,1)<(ceil(stTime+3)));
 
@@ -77,7 +77,7 @@ data= KPmatrix22(:,2);
 N=numel(data);
 
 
-%% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& %%
+%% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& %% Intial figure with real-time data
 figKp=figure;
 set(gcf,'Units','centimeters')
 set(gcf,'Position',[11.8,6.7,16.3,10.0])
@@ -100,9 +100,7 @@ caxis([3 5])
 hbar=gca;
 set(hbar,'Units','centimeters') 
 set(hbar,'Position',[1.9,1.7,12.5,7.0])
-%% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& %%
-
-
+%% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& %% some axes labels and formatting
 
 xlim([0.5,(N+0.5)]);
 ylim([0 9]);
@@ -152,8 +150,7 @@ text(N+(N/30),6.6,kptxt{1,3}, 'color',DarkRed , ...
 outPP_h=hb;
 
 
-
-%% overplot Timaeaxis with extra stuff
+%% overplot initial pink model
 ax2_2 = axes('Units','centimeters','Position',get(hbar,'Position'),...
            'XAxisLocation','bottom',...
            'YAxisLocation','right',...
@@ -166,6 +163,8 @@ delete(h2_2)
 clear h2_2
 t1=KPmatrix22(1,1);t2=KPmatrix22(end,1)+ (3/24);    %  ** Adjusted for v4
 %t1=datenum([2014,01,07,0,0,0]);t2=datenum([2014,01,12,0,0,0]);
+
+%% axes labels
 set(ax2_2,'XLim',[t1,t2])
 set(ax2_2,'ylim',get(hbar,'ylim'))
 set(ax2_2, 'ytick',t1:1:t2-1)
@@ -182,6 +181,8 @@ for jj=1:1:NN+1
 end
 %hb=bar(data);
 
+
+%% Time axis formatting labels
 uniNamestemp = datestr([KPmatrix22(:,1);KPmatrix22(end,1)+1],'dd mmm');
 uniNamestemp = datestr(KPmatrix22Wholedays(:,1),'dd mmm');%KPmatrix22Wholedays
 n_rows=1;
@@ -190,15 +191,16 @@ n_char=size(uniNamestemp,2);
 uniNames2 = mat2cell(uniNamestemp,ones(n_colm,1),n_char);
 set(ax2_2,'XTickLabel',uniNames2 );
 
-%% DISPLAY:
-%
-%%%% from the input script
+
+%% import from the input script file
+%%%%
 ccmcKpmax=ccmcKpEst(1,2); ccmcKpmin=ccmcKpEst(1,1);
 swpcKpmax=swpcKpEst(1,2); swpcKpmin=swpcKpEst(1,1);
 t1ccmc=ccmcArr; 
 t1swpc=swpcArr; 
 %%%%
 
+%% OVERPLOT: BLUE NASA max forecast 
 % the NASA CCMC prediction on 2014 event
 % t1ccmc=datenum([2012,06,16,10,20,0]);
 % t1ccmc=datenum([2014,01,09,00,38,0]);
@@ -225,7 +227,7 @@ haCCMC(3)=line([t1ccmc-tCcmcErr,t1ccmc+tCcmcErr],[ccmcKpave,ccmcKpave],...
 % % % text(t1ccmc+tCcmcErr+0.1,7.6,'NASA CCMC Prediction', 'color',DarkBlue , ...
 % % %      'horizontalalignment','left','Rotation',0,'FontSize',13)
 
-
+%% plots BLUE arrival time window and other AGENCY forecasts
 % the NOAA SWPC prediction on 2014 event
 % t1swpc=datenum([2012,06,16,19,00,0]);
 % t1swpc=datenum([2014,01,09,12,00,0]);
@@ -256,7 +258,7 @@ haCCMC(10)=line([t1swpc-tswpcErr,t1swpc+tswpcErr],[swpcKpave,swpcKpave],...
 
 %}
 
- 
+%% NOT SURE THIS CODE BLOCK IS NEEDED FOR FORECASTING
 % the NEW MODEL prediction on 2014 event
 
 NewMKpmax=NewMKpEst(1,2); NewMKpmin=NewMKpEst(1,1);
@@ -273,15 +275,16 @@ ypoints=[NewMKpmax,NewMKpmax,NewMKpmin,NewMKpmin];
 % % % haCCMC(15)=fill(xpoints,ypoints,[1 0.3 0.3],'Parent',ax2_2);
 % % % set(haCCMC(15),'EdgeColor','r','FaceAlpha',0.2,'EdgeAlpha',0);
 
+%% OVERPLOT "Bz4Cast Model Prediction" and max Kp Red bar
 haCCMC(16)=line([t1swpc,t1swpc],[NewMKp-0.2,NewMKp+0.2],...
         'Color',DarkRed,'LineStyle','-','Linewidth',1,'Parent',ax2_2);
-haCCMC(17)= 1;
+% haCCMC(17)= 1;
 haCCMC(18)=plot([t1swpc-tswpcErr,t1swpc+tswpcErr],[NewMKp,NewMKp],...
         'Color',[1,0.4,0.4],'LineStyle','-','Linewidth',5,'Parent',ax2_2);
 text(t1swpc+tswpcErr+0.05,NewMKp,'Bz4Cast Model Prediction', 'color',DarkRed , ...
      'horizontalalignment','left','Rotation',0,'FontSize',13)
 
-%% 
+%% OVERPLOT: DARK RED Flux rope model without the sheath region
 kplog = find(Kpvec(:,1) > LastShVal);
 h2_3=stairs(Kpvec(kplog,1),Kpvec(kplog,2),'Color',DarkRed,'LineStyle','-','Linewidth',2.5,'Parent',ax2_2);hold on
 

@@ -40,7 +40,7 @@ ShadeSun % centre core region
 
 % print(gcf,'-dpng','-r100','-opengl','AA.png')
 
-%% estimate impact parameter Y0
+%% estimate impact parameter Y0   - model formula
 % define the interp profile 
 RdistProf=(0:0.01:1.9)';
 ind=find(RdistProf<avCMEhaWidth,1,'last');

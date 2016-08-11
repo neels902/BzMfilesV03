@@ -1,7 +1,14 @@
 function [Axis,struA ]= FRaxis( I_tilt,I_fracDis,varargin)
-%FRAXIS Summary of this function goes here
-%   Detailed explanation goes here
-% output cartesian is assumed to be in rtn coord.
+%FRAXIS Summary of this function goes here.
+%  
+% This routine creates the 3D vector direction of the local flux rope
+% at Earth position. 
+%
+% The input FracDist is pulled from Earth2FRaxis, but for patent update it
+% should now be taken direct from CalcImpactparam > CreateFRaxis to avoid 
+% confusion and clean code structure.
+%
+% Output cartesian is assumed to be in rtn coord.
 % this output has y dirn (rtn) as always +ve
 
 

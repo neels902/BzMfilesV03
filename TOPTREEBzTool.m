@@ -149,7 +149,7 @@ magnetogram=Mgram;  % 'down'  up means +ve region is above(north) the neutral li
 
 [Bfield,strucA]= Bestimate(StrucFRax, Y0,BBVV, magnetogram,varargin);
 
-
+Kpvec= strucA.Kp.Kpvec;
 
 %% define outputs
 if nargout == 0
@@ -158,7 +158,39 @@ else
      temp2=1;
 end
 
+%% OUTPUT results into txt files and JSON fomatted files.
+% file location on local computer
+FileLoc = '~/';
+DirName = 'Bz4CastFiles'; % name of the folder to place the files inside
+
+%% output: 2 text files: Mag vec times series model in both txt & JSON
+
+COREstring = 'Bfield_TXT'; % core string structure of the file names
+COREstringJS = 'Bfield_JSON'; % core string structure of the file names
+
+BasicInputsStr{1,1} = DirName;
+BasicInputsStr{1,2} = COREstring;
+BasicInputsStr{1,3} = COREstringJS;
+
+% temp = OutfileBz(FileLoc,Bfield,varargin);
+temp = OutfileBz(FileLoc,Bfield,BasicInputsStr);
+
+
+%% output: 2 text files: Kp times series model in both txt & JSON
+
+COREstring = 'Kp_TXT'; % core string structure of the file names
+COREstringJS = 'Kp_JSON'; % core string structure of the file names
+BasicInputsStr{1,2} = COREstring;
+BasicInputsStr{1,3} = COREstringJS;
+
+temp = OutfileKp(FileLoc,Kpvec,BasicInputsStr);
+
+% output: - OutfileSkill: 
+% work in progress to be used in histroical sense. Need to predefine 'Hit' 
+% Criteria
 
 disp(['##----------------##']);
+disp(['  ']);
+disp(['  ']);
 end
 

@@ -69,7 +69,7 @@ insit=OutStrucTemp.temp;
 avlength=[0,0,0,0,20,5];%10min alone doesnt ave date-must be slightly larger
 insit= Ave (insit, avlength);
 
-%% 5. pad time series with generic values i.e add background
+%% 5. pad time series with generic values i.e add background 
 
 Timelength=0.5;  % half a day extra on both sides;
 incrementTime= Timemod(2)-Timemod(1);
@@ -84,7 +84,7 @@ preTime=Timemod(1)-flipud(tvec((1:end)));
 postTime=Timemod(end) + (tvec((1:end)));
 
 
-% add sheath
+%% 5a. + SHeath introduction 
 InStruc=1;
 InBfield=OutStrucTemp.tempShort;
 
@@ -249,7 +249,7 @@ outKp= KpIndexplot4(kpstuff, varargin);
 
 %% 10. outputs
 O_Bdata=FullmodDataNoise;
-StructA.temp1=1;
+StructA.Kp=kpstuff;
 StructA.temp2=1;
 
 end
