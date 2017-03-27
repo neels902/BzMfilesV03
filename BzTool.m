@@ -65,7 +65,8 @@ Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/'
 % Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2040-01-01%2002:24:47.0&window=-1&cygnetId=237';
 Hinput.enlilBB = 15; % '../Insitu/enlil/ev03.txt';
 Hinput.enlilVV = 650;
-Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&';
+% Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&';
+Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=dscovr,dscovr,dscovr&quantity=B_x,B_y,B_z&';
 %'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=TEXT&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2015-08-18%2015:59:59&end-time=2015-08-19%2023:59:59';
 Hinput.AT=datenum([2012,03,12,012,20,00]);
 Hinput.ccmc = [0.0,0.0];
