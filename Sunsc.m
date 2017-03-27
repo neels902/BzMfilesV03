@@ -24,6 +24,8 @@ h=surfacem(latte,lonte,tMat);
 %axis off
 
 ImportAIA
+% ImportAIA_v1  % for manual changes to SOlar imagery 
+
 %hemisphere = [ones(257,125),X,ones(257,125)];
 
 %hemisphere = log(Im-min(Im(:))+1);

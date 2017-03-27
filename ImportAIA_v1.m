@@ -10,7 +10,7 @@
 
 % info=fitsinfo ('fig/AIAfts/event10_20140107_201400_AIA_171_.fts');
 % Im2 =fitsread ('fig/AIAfts/event10_20140107_201400_AIA_171_.fts');
-inputScript
+inputScriptv03
 
     info=fitsinfo (ftsStr); % '../AIAfts/event03_20120310_023749_AIA_171_.fts'
     Im2 =fitsread (ftsStr); % '../AIAfts/event03_20120310_023749_AIA_171_.fts'

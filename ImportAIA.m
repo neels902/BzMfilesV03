@@ -24,7 +24,7 @@ CygId='237';
 
 %% import image from API
 WebUrl= [UrlStart,BTIm,ETst,CygId];
-str2=imread(WebUrl); 
+str2=webread(WebUrl); 
 % str2=imread(ftsStr); 
     
 %     info=fitsinfo (ftsStr); % '../AIAfts/event03_20120310_023749_AIA_171_.fts'

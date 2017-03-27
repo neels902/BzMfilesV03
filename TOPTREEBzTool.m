@@ -12,6 +12,17 @@ function [temp2]  = TOPTREEBzTool( I_toolHandle, varargin )
 % TOPTREEBz( I_strg, varargin )
 % temp2 = TOPTREEBz('ev03');
 % temp2 = TOPTREEBz('ev03',1); - to plot extra figures
+%
+% To manually adjust the solar imagery to any jpeg you want:
+% Sunsc L27: ImportAIA  --> ImportAIA_v1 
+% 
+% 
+% 
+% 
+% 
+% 
+
+
 
 inputString=I_toolHandle;
 %inputString='Error Old Code pre BzTool';
@@ -173,6 +184,10 @@ BasicInputsStr{1,2} = COREstring;
 BasicInputsStr{1,3} = COREstringJS;
 
 % temp = OutfileBz(FileLoc,Bfield,varargin);
+
+% fileName = CreateFileName(FileLoc, DirName, COREstring);
+% tempscript
+
 temp = OutfileBz(FileLoc,Bfield,BasicInputsStr);
 
 

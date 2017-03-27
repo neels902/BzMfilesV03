@@ -9,6 +9,10 @@ function [temp2]  = TOPTREEBz( I_strg, varargin )
 % 
 %  set varargin=1 for output of all figures used in calculations
 %
+%   *** REMEMBER: to change InputScript.m --> InputScriptv03.m
+%   *** inside Sunsc
+%
+%
 % temp2 = TOPTREEBz('ev03');
 %
 
@@ -45,7 +49,8 @@ Ang2Sou_deg = totAng(lon, lat);
 Ang2Sou = Ang2Sou_deg * d2r;
 
 %[E2dist,Fracdist,tempStruc]= Earth2FRaxis(EarthPos,lon,lat,tilt,haf);
-[E2dist,Fracdist,tempStruc]= Earth2FRaxis(EarthPos,lon,lat,tilt,haf,vararginOVERRIDE);
+vararginOVERRIDE2=vararginOVERRIDE; vararginOVERRIDE2{1,1}=1; %- always plot sun image
+[E2dist,Fracdist,tempStruc]= Earth2FRaxis(EarthPos,lon,lat,tilt,haf,vararginOVERRIDE2);
 
 StrucOut.EarthPos=EarthPos;
 StrucOut.fsun=tempStruc.fig1;
