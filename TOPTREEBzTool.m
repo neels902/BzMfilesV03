@@ -1,11 +1,11 @@
 function [temp2]  = TOPTREEBzTool( I_toolHandle, varargin )
 %TOPTREE Summary of this function goes here
-%   Detailed explanation goes here
+%   - This is for operational mode. TOPTREEBz is no longer used with the UI
 %
 %   - Code improved to use a script to drive the input variables and minimise
 %   the toptreeBz inputs
 %   - code improved to import enlil txt files to estimate the B0 & V0 value
-%
+%    
 %
 %  set varargin=1 for output of all figures used in calculations
 %
