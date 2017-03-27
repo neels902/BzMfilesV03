@@ -20,16 +20,7 @@ else
     COREstring = varargin{1,1}{1,2};
     COREstringJS = varargin{1,1}{1,3};
 end
-%varargin{1,2}=inputString;
 
-vararginOVERRIDE=varargin;
-
-inputString=varargin{1,1}{1,2};  % used in Sunsc>importAIA
-plotfig=varargin{1,1}{1,1};
-varargin=varargin{1,1};
-
-% if isempty(varargin), DoStuff=[]; 
-% else DoStuff=varargin{1,1}(:); end
 
 %% separate time and Bx , y, z
 TT = BStr(:,1);
@@ -43,8 +34,11 @@ Btmatrix = Bmatrix';
 formatOut = 'yyyy-mm-dd HH:MM:SS';
 TTstring = datestr(TT,formatOut);
 %% create JSON format
-X = struct('Time', TTstring,'Bx', Bx, 'By', By, 'Bz', Bz);
-S_JSON = json.dump(X);
+% addpath /Users/Neel/Documents/MATLAB/matlab-json
+% json.startup
+% X = struct('Time', TTstring,'Bx', Bx, 'By', By, 'Bz', Bz);
+% S_JSON = json.dump(X);
+
 % X3 = json.load(S_JSON); disp(X3);  -- strangely the order of strucutre is
 % By, Bx, Time, Bz ???
 
@@ -63,11 +57,11 @@ fclose(fid);
 
 
 %% create output file: JSON
-fileName2 = CreateFileName(DestStg, DirName, COREstringJS);
-
-fid2=fopen(fileName2,'w');
-fprintf(fid2, '%s \n', S_JSON);
-fclose(fid2);
+% fileName2 = CreateFileName(DestStg, DirName, COREstringJS);
+% 
+% fid2=fopen(fileName2,'w');
+% fprintf(fid2, '%s \n', S_JSON);
+% fclose(fid2);
 
 %% outputs
 O_temp =1;

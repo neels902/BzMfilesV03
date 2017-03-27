@@ -104,11 +104,11 @@ set(hbar,'Position',[1.9,1.7,12.5,7.0])
 
 xlim([0.5,(N+0.5)]);
 ylim([0 9]);
-ylabel('Kp Index','FontSize',15)
-xlabel('','FontSize',15)
+ylabel('Kp Index','FontSize',20)
+xlabel('','FontSize',20)
 set(hbar, 'XTickLabel', '')
 set(hbar,'XTick',[])
-set(hbar,'fontsize',15)
+set(hbar,'fontsize',20)
 set(hbar, 'ytick',[1,2,3,4,5,6,7,8,9])
 set(hbar,'YMinorTick','off')
 set(hbar, 'yticklabel',{'','2','','4','','6','','8',''})
@@ -123,12 +123,12 @@ set(hbar, 'yticklabel',{'','2','','4','','6','','8',''})
 %hb=bar(data,'style','hist');
 
 kptxt={'Kp<4','Kp=4','Kp>4'};
-text(N+(N/30),2,kptxt{1,1}, 'color',DarkGreen, ...
-     'horizontalalignment','center','Rotation',90,'FontSize',15)
-text(N+(N/30),4.2,kptxt{1,2}, 'color','yellow' , ...
-     'horizontalalignment','center','Rotation',90,'FontSize',15)
-text(N+(N/30),6.6,kptxt{1,3}, 'color',DarkRed , ...
-     'horizontalalignment','center','Rotation',90,'FontSize',15)
+text(N+(N/30),1.6,kptxt{1,1}, 'color',DarkGreen, ...
+     'horizontalalignment','center','Rotation',90,'FontSize',20)
+text(N+(N/30),4.2,kptxt{1,2}, 'color', [1,0.8431,0], ...
+     'horizontalalignment','center','Rotation',90,'FontSize',20)% 'yellow'
+text(N+(N/30),6.9,kptxt{1,3}, 'color',DarkRed , ...
+     'horizontalalignment','center','Rotation',90,'FontSize',20)
 
 % % '05 Jan','','','','','','','',...
 % %             '06 Jan','','','','','','','',...
@@ -168,8 +168,10 @@ t1=KPmatrix22(1,1);t2=KPmatrix22(end,1)+ (3/24);    %  ** Adjusted for v4
 set(ax2_2,'XLim',[t1,t2])
 set(ax2_2,'ylim',get(hbar,'ylim'))
 set(ax2_2, 'ytick',t1:1:t2-1)
-set(ax2_2,'fontsize',15)
-xlabel('Universal Time','FontSize',15)
+set(ax2_2,'fontsize',18)
+tempYear = datestr(KPmatrix22Wholedays(1,1),'yyyy');
+xFigLabel = [tempYear, ', Universal Time'];
+xlabel(xFigLabel ,'FontSize',20)
 
 %TimeAxisSet ('mat',ax2_2)
 disp(['st time   =  ', num2str(datevec(t1))]); disp(['st time KP=  ', num2str(datevec(KPmatrix22(1,1)))]);
@@ -282,7 +284,7 @@ haCCMC(16)=line([t1swpc,t1swpc],[NewMKp-0.2,NewMKp+0.2],...
 haCCMC(18)=plot([t1swpc-tswpcErr,t1swpc+tswpcErr],[NewMKp,NewMKp],...
         'Color',[1,0.4,0.4],'LineStyle','-','Linewidth',5,'Parent',ax2_2);
 text(t1swpc+tswpcErr+0.05,NewMKp,'Bz4Cast Model Prediction', 'color',DarkRed , ...
-     'horizontalalignment','left','Rotation',0,'FontSize',13)
+     'horizontalalignment','left','Rotation',0,'FontSize',16)
 
 %% OVERPLOT: DARK RED Flux rope model without the sheath region
 kplog = find(Kpvec(:,1) > LastShVal);
