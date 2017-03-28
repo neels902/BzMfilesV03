@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="874046027" file="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03/Bz4Cast.prj" location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03" name="Bz4Cast" preferred-package-location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
+  <configuration build-checksum="3331325360" file="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03/Bz4Cast.prj" location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03" name="Bz4Cast" preferred-package-location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>Bz4Cast</param.appname>
     <param.icon>${PROJECT_ROOT}/Bz4Cast_resources/icon.icns</param.icon>
     <param.icons>
@@ -8,51 +8,59 @@
       <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_24.png</file>
       <file>${PROJECT_ROOT}/Bz4Cast_resources/icon_16.png</file>
     </param.icons>
-    <param.version>7.8</param.version>
+    <param.version>8.2</param.version>
     <param.authnamewatermark>Neel Savani</param.authnamewatermark>
     <param.email>neel.savani@umbc.edu</param.email>
     <param.company>NASA GSFC / UMBC</param.company>
-    <param.summary>Bz prediction standalone. version 07.</param.summary>
-    <param.description>OUTPUT Text file update of model. standalone. version 07
+    <param.summary>Bz prediction standalone. version 08. DSCOVR</param.summary>
+    <param.description>L1 DSCOVR data. standalone. version 08
+OUTPUT Text file update of model. 
 B field and Kp output in ASCII but not JSON.</param.description>
     <param.screenshot>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/splash.png</param.screenshot>
     <param.guid />
-    <param.installpath.string>/Bz4Cast07_8/</param.installpath.string>
+    <param.installpath.string>/Bz4Cast08_2/</param.installpath.string>
     <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
     <param.logo>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/Standalone.jpg</param.logo>
-    <param.install.notes />
+    <param.install.notes>In the following directions, replace MCR_ROOT by the directory where the MATLAB Runtime is installed on the target machine.
+
+If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the concatenation of the following strings:
+
+    MCR_ROOT/v91/runtime/maci64:
+    MCR_ROOT/v91/sys/os/maci64:
+    MCR_ROOT/v91/bin/maci64
+
+If it is defined, set it to the concatenation of these strings:
+
+    ${LD_LIBRARY_PATH}: 
+    MCR_ROOT/v91/runtime/maci64:
+    MCR_ROOT/v91/sys/os/maci64:
+    MCR_ROOT/v91/bin/maci64</param.install.notes>
+    <param.target.install.notes />
     <param.intermediate>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing</param.intermediate>
     <param.files.only>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution_files_only</param.files.only>
     <param.output>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_redistribution</param.output>
+    <param.logdir>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/BzMfilesV03</param.logdir>
     <param.enable.clean.build>false</param.enable.clean.build>
     <param.user.defined.mcr.options />
     <param.embed.ctf>true</param.embed.ctf>
-    <param.server.ctf>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/.ctf</param.server.ctf>
-    <param.server.readme>/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/readme.txt</param.server.readme>
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.required.mcr.products>
-      <item>35000</item>
-      <item>35001</item>
-    </param.required.mcr.products>
     <param.web.mcr>true</param.web.mcr>
     <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
     <param.web.mcr.name>Bz4Cast</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
-    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
     <param.create.log>false</param.create.log>
     <param.log.file />
     <unset>
       <param.guid />
       <param.installpath.combo />
-      <param.install.notes />
+      <param.target.install.notes />
       <param.enable.clean.build />
       <param.user.defined.mcr.options />
       <param.embed.ctf />
-      <param.server.ctf />
-      <param.server.readme />
       <param.target.type />
       <param.support.packages />
       <param.web.mcr />
@@ -149,6 +157,7 @@ B field and Kp output in ASCII but not JSON.</param.description>
       <file>${PROJECT_ROOT}/totAng_theory.m</file>
     </fileset.resources>
     <fileset.package />
+    <fileset.depfun />
     <build-deliverables>
       <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="run_Bz4Cast.sh" optional="false">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/run_Bz4Cast.sh</file>
       <file location="/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing" name="splash.png" optional="false">/Users/Neel/LONDON 2015/RESEARCH/PROJECTS/BzTool/STANDALONE TOOL/for_testing/splash.png</file>
@@ -157,27 +166,8 @@ B field and Kp output in ASCII but not JSON.</param.description>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2014b.app</root>
-      <toolboxes>
-        <toolbox name="fixedpoint" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="matlabcoder" />
-      </toolboxes>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
+      <root>/Applications/MATLAB_R2016b.app</root>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>true</unix>
@@ -188,7 +178,7 @@ B field and Kp output in ASCII but not JSON.</param.description>
       <vista>false</vista>
       <linux>false</linux>
       <solaris>false</solaris>
-      <osver>10.11.6</osver>
+      <osver>10.12.3</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>maci64</arch>
