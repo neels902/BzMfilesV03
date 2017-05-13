@@ -1,4 +1,7 @@
 function OutHand = DefineSC(InHandles)
+% Used inside BzTool L553
+% This routine simply converts solarcycle value to requirement 24/23
+% even/odd format
 
 % handles.Hinput.AT=datenum([2012,03,12,012,20,00]);
 % handles.Hinput.tempCyc = 1;
