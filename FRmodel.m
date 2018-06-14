@@ -1,4 +1,5 @@
 function [Bfield, StrucA]= FRmodel(I_Y0,I_BBmag, I_veclen,I_alpha)
+% used inside FRProfile.m file ~L78
 
 Y0=I_Y0;
 B0=I_BBmag;

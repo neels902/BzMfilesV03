@@ -26,7 +26,7 @@ enlilVV=Hinput.enlilVV;
 %%%%%%%%% <--
 arrTime=Hinput.AT;
     StrucFRax.stTime=arrTime; % datenum([2012,03,12,012,20,00]);  % st n end of FR time series e03
-    StrucFRax.enTime=StrucFRax.stTime + datenum([0,0,0,18,00,00]);  % CME duration [2012,03,13,04,20,00]
+    StrucFRax.enTime=StrucFRax.stTime + datenum([0,0,1,8,00,00]);  % CME duration [2012,03,13,04,20,00]
 %%%NEW%%% -->
     bkgdShift=datenum([0,0,4,00,00,00]); % [0,0,0,7,00,00] 4 days ahead
 %%%%%%%%% <--

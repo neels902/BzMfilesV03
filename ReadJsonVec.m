@@ -2,7 +2,7 @@ function [ OUTPUT ] = ReadJsonVec(fileToRead1, IN_time)
 
 % Used inside TOPTREEBzTool > Bestimate > ave1day_preCarrot > ReadJsonVec
 
-%'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
+% 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
 % &begin-time=2013-01-01%2023:59:59&end-time=2013-01-02%2023:59:59'
 
 UrlStart= fileToRead1;

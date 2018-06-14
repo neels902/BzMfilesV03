@@ -57,7 +57,7 @@ end
 % above to below the axis. This gives the correct vectors from original RH
 % FR model. But all vectors need to be rotated to the correct tilt + 180deg
 checkY0=1;
-if check == 1.0 || check == 4.0;
+if check == 1.0 || check == 4.0
     checkY0=-1;   %  equiv. of impact parameter flip
     tilt=tilt+180;  % to make sure the correct matrix rotation is performed - assumes angles 90-> 270 are ok
 end

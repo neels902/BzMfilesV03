@@ -36,7 +36,10 @@ caxis([0,300])
 colormap(b4)
 
 clear Im hemisphere
-text(0,-0.85,strDate, 'color',DarkBlue ,'horizontalalignment','center','Rotation',0,'FontSize',15)
+% text(0,-0.85,strDate, 'color',DarkBlue ,'horizontalalignment','center','Rotation',0,'FontSize',15)
+htxt = text(0,-0.85,strDate, 'horizontalalignment','center','Rotation',0,'FontSize',15);
+htxt.Color =[1 1 1];
+htxt.FontWeight ='bold';
 
 %% testing demo for Earth rendering as it is faster
 % load earth

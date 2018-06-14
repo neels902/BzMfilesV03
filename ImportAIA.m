@@ -34,7 +34,7 @@ str2=webread(WebUrl);
 %imagesc(str2)
 %%  import image date as a string
 WebUrl2= [UrlStart,BTDate,ETst,CygId];
-strDatetemp=urlread(WebUrl2); 
+strDatetemp=webread(WebUrl2); 
 strDate=strDatetemp(1:end-4);
 
 %%

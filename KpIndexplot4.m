@@ -92,7 +92,9 @@ ha4=plot([0 N],[5 5],'Color',[0.8,0,0],'LineStyle',':','Linewidth',1);
 ha5=plot([0 N],[6 6],'Color',[0.8,0,0],'LineStyle','-','Linewidth',1);
 ha6=plot([0 N],[8 8],'Color',[0.8,0,0],'LineStyle','-','Linewidth',1);
 %%%%%%%%%%%%%%%%%%%%%
-hb=bar(data); 
+hb=bar(data);
+hb.FaceColor = [0.5 0.8 0.2];
+hb.FaceAlpha = 0.6;
 set(get(hb,'children'),'cdata', sign(data-4) );
 colormap([0 1 0;1 1 0; 1 0 0]);
 caxis([3 5])
@@ -283,7 +285,7 @@ haCCMC(16)=line([t1swpc,t1swpc],[NewMKp-0.2,NewMKp+0.2],...
 % haCCMC(17)= 1;
 haCCMC(18)=plot([t1swpc-tswpcErr,t1swpc+tswpcErr],[NewMKp,NewMKp],...
         'Color',[1,0.4,0.4],'LineStyle','-','Linewidth',5,'Parent',ax2_2);
-text(t1swpc+tswpcErr+0.05,NewMKp,'Bz4Cast Prediction', 'color',DarkRed , ...
+text(t1swpc+tswpcErr+0.05,NewMKp,{'Max Bz4Cast', 'Prediction'}, 'color',DarkRed , ...
      'horizontalalignment','left','Rotation',0,'FontSize',16)
 
 %% OVERPLOT: DARK RED Flux rope model without the sheath region

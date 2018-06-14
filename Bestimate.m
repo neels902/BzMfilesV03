@@ -3,6 +3,7 @@ function [O_Bdata, StructA]= Bestimate(I_Axis_dirn, I_Y0,I_BBmag, I_magdirn,vara
 % Used inside TOPTREEBzTool > Bestimate > 
 
 % USES   FRProfile, ave1day_preCarrot, addNoiseVec, KpEstimate
+% 2017-08-08 NPS. bug fix if-statement to correct array length
 
 %% 1. inputs
 FRaxisvec=I_Axis_dirn.Axis;
@@ -96,8 +97,14 @@ BshMag2 = sqrt( (Bsheath2(:,2)).^2 + (Bsheath2(:,3)).^2 + (Bsheath2(:,4)).^2   )
 
 % quick fix
 NcurrentLenSh=length(preTime);
-Nsh=round(0.5*NcurrentLenSh);  % 1/2 to convert 12hr -> 6hr
-ShpreTime=preTime(Nsh+1:end);  
+
+% - keeps Nsh odd/even relative to preTime ensure the time and Field are same array length
+Nsh=floor(0.5*NcurrentLenSh);  % 1/2 to convert 12hr -> 6hr
+if rem(NcurrentLenSh,2)==0
+    ShpreTime=preTime(Nsh+1:end);
+else
+    ShpreTime=preTime(Nsh+2:end); 
+end
 Bsheath=Bsheath2(end-Nsh+1:end,:);
 BshMag=BshMag2(end-Nsh+1:end);
 
@@ -116,7 +123,10 @@ BBmod=[BshMag ; BMAG ; (BBave*Static)];
 
 FullmodData=[TTmod,Bxmod,Bymod,Bzmod,BBmod];
 
-%Bave=5.5; % nT ave background field strength
+% keeps FullmodData array length even for noise.
+if rem(NcurrentLenSh,2)==0 && rem(Nsh,2)==1 || rem(NcurrentLenSh,2)==0 && rem(Nsh,2)==1
+    FullmodData=FullmodData(2:end,:);
+end
 
 %% 5b add noise to forecast vectors - new addition section
 [FullmodDataNoiseHighRes,temp]=addNoiseVec(FullmodData);
@@ -154,8 +164,8 @@ subpanel(6,1,6),plot(FullmodDataNoise(:,1),BBmodN,'Color',[1,0.4,0.4],'LineWidth
 subpanel(6,1,1),ylabel('B_{x} GSE [nT]','Fontsize',14);
 subpanel(6,1,2),ylabel('B_{y} [nT]','Fontsize',14);
 subpanel(6,1,3),ylabel('B_{z} [nT]','Fontsize',14);
-subpanel(6,1,4),ylabel('B_\Phi','Fontsize',14);
-subpanel(6,1,5),ylabel('B_\theta','Fontsize',14);
+subpanel(6,1,4),ylabel('\phi_B','Fontsize',16);
+subpanel(6,1,5),ylabel('\theta_B','Fontsize',16);
 subpanel(6,1,6),ylabel('|B| [nT]','Fontsize',14);
 TimeAxisSet
 xxlim=get(gca,'xlim');datevec(xxlim)  % ######### PRINT LINE   ############

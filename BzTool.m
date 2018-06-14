@@ -53,9 +53,9 @@ function BzTool_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to BzTool (see VARARGIN)
 
 % initiate the input variables;
-Hinput.so = [-5.03,13.13];
-Hinput.I_tilt = 38.01;
-Hinput.I_haf = 45.28;
+Hinput.so = [-15.0,14.0];
+Hinput.I_tilt = 30.0;
+Hinput.I_haf = 58.0;
 Hinput.I_Mgram ='South';
 Hinput.cycle = 24;
 Hinput.tempCyc = 1;  % only 1 or -1
@@ -63,12 +63,12 @@ Hinput.tempCyc = 1;  % only 1 or -1
 %Hinput.ftsStr = '../AIAfts/event03_20120310_023749_AIA_171_.fts';
 Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/';
 % Hinput.ftsStr = 'http://iswa.gsfc.nasa.gov/IswaSystemWebApp/iSWACygnetStreamer?timestamp=2040-01-01%2002:24:47.0&window=-1&cygnetId=237';
-Hinput.enlilBB = 15; % '../Insitu/enlil/ev03.txt';
-Hinput.enlilVV = 650;
+Hinput.enlilBB = 13; % '../Insitu/enlil/ev03.txt';
+Hinput.enlilVV = 645;
 Hinput.insituACE = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&';
 Hinput.insitu = 'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=JSON&resource=dscovr,dscovr,dscovr&quantity=B_x,B_y,B_z&';
 %'http://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/DatabaseDataStreamServlet?format=TEXT&resource=ACE,ACE,ACE&quantity=B_x,B_y,B_z&begin-time=2015-08-18%2015:59:59&end-time=2015-08-19%2023:59:59';
-Hinput.AT=datenum([2012,03,12,012,20,00]);
+Hinput.AT=datenum([2015,12,30,22,30,00]);
 Hinput.ccmc = [0.0,0.0];
 Hinput.swpc = [0.0,0.0];
 
@@ -147,10 +147,10 @@ val = get(hObject,'Value');
 
 
 % Set current data to the selected data set.
-switch str{val};
-case '+ve' % Odd Solar cycle.
+switch str{val}
+case '[+] Positive' % Odd Solar cycle.
    handles.Hinput.tempCyc = 1;
-case '-ve' % Even Solar cycle.
+case '[-] Negative' % Even Solar cycle.
    handles.Hinput.tempCyc = -1;
 end
 % Save the handles structure.
