@@ -1,0 +1,171 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03/DB_Bztool.prj" location="/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03" name="DB_Bztool" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>BzTool</param.appname>
+    <param.icon>${PROJECT_ROOT}/DB_Bztool_resources/icon.icns</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}/DB_Bztool_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/DB_Bztool_resources/icon_32.png</file>
+      <file>${PROJECT_ROOT}/DB_Bztool_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/DB_Bztool_resources/icon_16.png</file>
+    </param.icons>
+    <param.version>1.0</param.version>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot>${PROJECT_ROOT}/Bz4CastCCMC_resources/splash.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>/BzTool8_4/</param.installpath.string>
+    <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
+    <param.logo>${PROJECT_ROOT}/Bz4CastCCMC_resources/Standalone.jpg</param.logo>
+    <param.install.notes>In the following directions, replace MR by the directory where MATLAB or the MATLAB Runtime is installed on the target machine.
+
+If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following string:
+
+MR/v93/runtime/maci64:MR/v93/sys/os/maci64:MR/v93/bin/maci64
+
+If it is defined, set it to the following:
+
+${DYLD_LIBRARY_PATH}:MR/v93/runtime/maci64:MR/v93/sys/os/maci64:MR/v93/bin/maci64</param.install.notes>
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}/DB_Bztool/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/DB_Bztool/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/DB_Bztool/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/DB_Bztool_resources</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text />
+    <unset>
+      <param.version />
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.guid />
+      <param.installpath.combo />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+      <param.help.text />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/BzTool.m</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}/BzTool.fig</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>/Users/neel/Documents/MATLAB/util/Ave.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/DSdate2time.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/DSmat2time.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/DStime2date.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/DStime2mat.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/NanAvErr.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/TimeAxisSet.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/d2r.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/daycheck.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/doy2dom.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/doy2ymd.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/numdays.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/r2d.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/subpanel.m</file>
+      <file>/Users/neel/Documents/MATLAB/util/ymd2doy.m</file>
+      <file>${PROJECT_ROOT}/AveNanB.m</file>
+      <file>${PROJECT_ROOT}/Bestimate.m</file>
+      <file>${PROJECT_ROOT}/CalcImpactparam.m</file>
+      <file>${PROJECT_ROOT}/CreateFRaxis.m</file>
+      <file>${PROJECT_ROOT}/CreateFileName.m</file>
+      <file>${PROJECT_ROOT}/CreateTimeVectors.m</file>
+      <file>${PROJECT_ROOT}/DarkBlue.m</file>
+      <file>${PROJECT_ROOT}/DarkGreen.m</file>
+      <file>${PROJECT_ROOT}/DarkRed.m</file>
+      <file>${PROJECT_ROOT}/DefineSC.m</file>
+      <file>${PROJECT_ROOT}/Earth2FRaxis.m</file>
+      <file>${PROJECT_ROOT}/FRProfile.m</file>
+      <file>${PROJECT_ROOT}/FRaxis.m</file>
+      <file>${PROJECT_ROOT}/FRmodel.m</file>
+      <file>${PROJECT_ROOT}/FRmodelMag.m</file>
+      <file>${PROJECT_ROOT}/ImportAIA.m</file>
+      <file>${PROJECT_ROOT}/KpEstimate.m</file>
+      <file>${PROJECT_ROOT}/KpIndexplot4.m</file>
+      <file>${PROJECT_ROOT}/L1dataAPI.m</file>
+      <file>${PROJECT_ROOT}/OutfileBz.m</file>
+      <file>${PROJECT_ROOT}/OutfileKp.m</file>
+      <file>${PROJECT_ROOT}/PowerNoiseTseries.m</file>
+      <file>${PROJECT_ROOT}/ReadJsonKpVec.m</file>
+      <file>${PROJECT_ROOT}/ReadJsonVec.m</file>
+      <file>${PROJECT_ROOT}/ReadOmniAce.m</file>
+      <file>${PROJECT_ROOT}/ShadeSun.m</file>
+      <file>${PROJECT_ROOT}/ShadeSun2.m</file>
+      <file>${PROJECT_ROOT}/Sunsc.m</file>
+      <file>${PROJECT_ROOT}/TOPTREEBzTool.m</file>
+      <file>${PROJECT_ROOT}/TopSheathModule.m</file>
+      <file>${PROJECT_ROOT}/addNoiseVec.m</file>
+      <file>${PROJECT_ROOT}/addzoomy.m</file>
+      <file>${PROJECT_ROOT}/ave1day_preCarrot.m</file>
+      <file>${PROJECT_ROOT}/inputScript.m</file>
+      <file>${PROJECT_ROOT}/rev_MVA.m</file>
+      <file>${PROJECT_ROOT}/totAng.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/DB_Bztool/for_testing" name="run_BzTool.sh" optional="false">/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03/DB_Bztool/for_testing/run_BzTool.sh</file>
+      <file location="${PROJECT_ROOT}/DB_Bztool/for_testing" name="BzTool.app" optional="false">/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03/DB_Bztool/for_testing/BzTool.app</file>
+      <file location="${PROJECT_ROOT}/DB_Bztool/for_testing" name="splash.png" optional="false">/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03/DB_Bztool/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/DB_Bztool/for_testing" name="readme.txt" optional="true">/Users/neel/RESEARCH/2017/PROJECTS/BzMfilesV03/DB_Bztool/for_testing/readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2017b.app</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.12.6</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
